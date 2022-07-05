@@ -10,6 +10,10 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def __str__(self) -> str:
+        """Model string representation for admin panel"""
+        return self.title
+
     class Meta:
         verbose_name = 'product'
         verbose_name_plural = 'products'

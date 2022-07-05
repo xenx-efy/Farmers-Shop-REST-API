@@ -4,8 +4,8 @@ from django.urls import path
 from products import views
 
 urlpatterns = [
-    path('products/', views.product_list, name='products-list'),
-    path('products/<int:pk>/', views.product_detail, name='product-detail'),
+    path('products/', views.ProductList.as_view(), name='products-list'),
+    path('products/<int:id>/', views.ProductDetail.as_view(), name='product-detail'),
 
     path('products-statuses/', views.product_status_list, name='products-statuses-list'),
     path('products-statuses/<int:pk>/', views.product_status_detail, name='product-status-detail'),

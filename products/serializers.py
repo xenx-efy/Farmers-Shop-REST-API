@@ -29,14 +29,6 @@ class ProductSerializer(serializers.ModelSerializer):
         fields = ['id', 'title', 'description', 'price', 'price_with_tax', 'status', 'category']
 
     price_with_tax = serializers.SerializerMethodField(method_name='calculate_tax')
-    status = serializers.HyperlinkedRelatedField(
-        queryset=ProductStatus.objects.all(),
-        view_name='product-status-detail'
-    )
-    category = serializers.HyperlinkedRelatedField(
-        queryset=ProductCategory.objects.all(),
-        view_name='product-category-detail'
-    )
 
     @staticmethod
     def calculate_tax(product: Product) -> Decimal:

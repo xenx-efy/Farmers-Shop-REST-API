@@ -5,28 +5,29 @@ from rest_framework import serializers
 from products.models import Product, ProductStatus, ProductCategory
 
 
-class ProductStatusSerializer(serializers.Serializer):
+class ProductStatusSerializer(serializers.ModelSerializer):
     """Serializer for Product Status model"""
 
-    id = serializers.IntegerField()
-    name = serializers.CharField(max_length=250)
+    class Meta:
+        model = ProductStatus
+        fields = ['id', 'name']
 
 
-class ProductCategorySerializer(serializers.Serializer):
+class ProductCategorySerializer(serializers.ModelSerializer):
     """Serializer for Product Category model"""
 
-    id = serializers.IntegerField()
-    name = serializers.CharField(max_length=250)
-    parent_id = serializers.IntegerField()
+    class Meta:
+        model = ProductCategory
+        fields = ['id', 'name', 'parent_id']
 
 
-class ProductSerializer(serializers.Serializer):
+class ProductSerializer(serializers.ModelSerializer):
     """Serializer for Product model"""
 
-    id = serializers.IntegerField()
-    title = serializers.CharField(max_length=250)
-    description = serializers.CharField()
-    unit_price = serializers.IntegerField(source='price')
+    class Meta:
+        model = Product
+        fields = ['id', 'title', 'description', 'price', 'price_with_tax', 'status', 'category']
+
     price_with_tax = serializers.SerializerMethodField(method_name='calculate_tax')
     status = serializers.HyperlinkedRelatedField(
         queryset=ProductStatus.objects.all(),

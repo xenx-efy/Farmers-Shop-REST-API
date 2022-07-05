@@ -1,20 +1,21 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
-from .models import Product
-from .serializers import ProductSerializer
+from products.models import Product
+from products.serializers import ProductSerializer
 
 
 @api_view(http_method_names=['GET'])
 def product_list(request):
-    queryset = Product.objects.all()
-    serializer = ProductSerializer(queryset, many=True)
+    queryset = Product.objects.select_related('category').all()
+    serializer = ProductSerializer(queryset, many=True, context={'request': request})
 
     return Response(serializer.data)
 
 
 @api_view(http_method_names=['GET'])
-def product_detail(request, id):
-    product = get_object_or_404(Product, pk=id)
+def product_detail(request, pk):
+    product = get_object_or_404(Product, pk=pk)
     serializer = ProductSerializer(product)
+
     return Response(serializer.data)

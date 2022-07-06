@@ -1,15 +1,16 @@
-from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from rest_framework.routers import SimpleRouter, DefaultRouter
+from pprint import pprint
 
-from products import views
+from products.views import ProductViewSet, ProductStatusViewSet, ProductCategoryViewSet
+
+router = SimpleRouter()
+router.register(r'products', ProductViewSet, 'product')
+router.register(r'products-statuses', ProductStatusViewSet)
+router.register(r'products-categories', ProductCategoryViewSet)
+# pprint(router.registry)
+pprint(router.urls)
 
 urlpatterns = [
-    path('products/', views.ProductList.as_view(), name='products-list'),
-    path('products/<int:id>/', views.ProductDetail.as_view(), name='product-detail'),
-
-    path('products-statuses/', views.product_status_list, name='products-statuses-list'),
-    path('products-statuses/<int:pk>/', views.product_status_detail, name='product-status-detail'),
-
-    path('products-categories/', views.product_category_list, name='products-categories-list'),
-    path('products-categories/<int:pk>', views.product_category_detail, name='product-category-detail'),
+    path('', include(router.urls)),
 ]

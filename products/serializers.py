@@ -2,7 +2,7 @@ from decimal import Decimal
 
 from rest_framework import serializers
 
-from products.models import Product, ProductStatus, ProductCategory
+from products.models import Product, ProductStatus, ProductCategory, Review
 
 
 class ProductStatusSerializer(serializers.ModelSerializer):
@@ -33,3 +33,11 @@ class ProductSerializer(serializers.ModelSerializer):
     @staticmethod
     def calculate_tax(product: Product) -> Decimal:
         return product.price * Decimal(1.08)
+
+
+class ReviewSerializer(serializers.ModelSerializer):
+    """Serializer for Product model"""
+
+    class Meta:
+        model = Review
+        fields = ['id', 'date', 'name', 'description', 'product']

@@ -1,18 +1,24 @@
 from typing import Set
-
 from django.contrib import admin
-from django.contrib.auth.models import User
-from django.contrib.auth.admin import UserAdmin
-
-# Unregister the provided model admin
-admin.site.unregister(User)
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from core.models import User
 
 
 @admin.register(User)
-class CustomUserAdmin(UserAdmin):
+class UserAdmin(BaseUserAdmin):
     """
     Custom admin class with restrictions for avoiding some vulnerabilities
     """
+
+    add_fieldsets = (
+        (
+            None,
+            {
+                "classes": ("wide",),
+                "fields": ("username", "password1", "password2", "email"),
+            },
+        ),
+    )
 
     def has_delete_permission(self, request, obj=None):
         return False

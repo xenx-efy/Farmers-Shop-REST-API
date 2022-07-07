@@ -49,7 +49,7 @@ class ReviewSerializer(serializers.ModelSerializer):
 
 
 class ProductProviderSerializer(serializers.ModelSerializer):
-    user_id = serializers.IntegerField()
+    user_id = serializers.IntegerField(read_only=True)
 
     class Meta:
         model = ProductProvider

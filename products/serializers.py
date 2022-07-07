@@ -3,6 +3,7 @@ from decimal import Decimal
 from rest_framework import serializers
 
 from products.models import Product, ProductStatus, ProductCategory, Review
+from products.models.product_provider import ProductProvider
 
 
 class ProductStatusSerializer(serializers.ModelSerializer):
@@ -45,3 +46,11 @@ class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Review
         fields = ['id', 'date', 'name', 'description']
+
+
+class ProductProviderSerializer(serializers.ModelSerializer):
+    user_id = serializers.IntegerField()
+
+    class Meta:
+        model = ProductProvider
+        fields = ['id', 'user_id', 'phone', 'description']

@@ -2,8 +2,8 @@ from decimal import Decimal
 
 from rest_framework import serializers
 
-from products.models import Product, ProductCategory, ProductStatus, Review
-from products.models.product_provider import ProductProvider
+from market.models import Product, ProductCategory, ProductStatus, Review
+from market.models.product_provider import ProductProvider
 
 
 class ProductStatusSerializer(serializers.ModelSerializer):

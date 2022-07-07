@@ -1,6 +1,6 @@
 from django.db import models
 
-from products.models import Product
+from market.models import Product
 
 
 class Review(models.Model):

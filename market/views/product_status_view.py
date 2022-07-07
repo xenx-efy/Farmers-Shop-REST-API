@@ -1,7 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
 
-from products.models import ProductStatus
-from products.serializers import ProductStatusSerializer
+from market.models import ProductStatus
+from market.serializers import ProductStatusSerializer
 
 
 class ProductStatusViewSet(ModelViewSet):

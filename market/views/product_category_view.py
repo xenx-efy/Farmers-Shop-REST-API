@@ -1,7 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
 
-from products.models import ProductCategory
-from products.serializers import ProductCategorySerializer
+from market.models import ProductCategory
+from market.serializers import ProductCategorySerializer
 
 
 class ProductCategoryViewSet(ModelViewSet):

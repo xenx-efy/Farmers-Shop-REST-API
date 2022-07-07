@@ -1,7 +1,7 @@
 from rest_framework.routers import DefaultRouter
 from rest_framework_nested import routers
 
-from products.views import (
+from market.views import (
     ProductCategoryViewSet,
     ProductProviderViewSet,
     ProductStatusViewSet,

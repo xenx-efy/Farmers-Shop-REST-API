@@ -38,13 +38,13 @@ class Migration(migrations.Migration):
                 (
                     "category",
                     models.ForeignKey(
-                        null=True, on_delete=django.db.models.deletion.SET_NULL, to="products.productcategory"
+                        null=True, on_delete=django.db.models.deletion.SET_NULL, to="market.productcategory"
                     ),
                 ),
                 (
                     "status",
                     models.ForeignKey(
-                        null=True, on_delete=django.db.models.deletion.SET_NULL, to="products.productstatus"
+                        null=True, on_delete=django.db.models.deletion.SET_NULL, to="market.productstatus"
                     ),
                 ),
             ],

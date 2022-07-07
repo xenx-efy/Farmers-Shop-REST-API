@@ -9,7 +9,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ("products", "0004_review"),
+        ("market", "0004_review"),
     ]
 
     operations = [
@@ -32,7 +32,7 @@ class Migration(migrations.Migration):
             model_name="product",
             name="owner",
             field=models.ForeignKey(
-                default=1, on_delete=django.db.models.deletion.CASCADE, to="products.productprovider"
+                default=1, on_delete=django.db.models.deletion.CASCADE, to="market.productprovider"
             ),
             preserve_default=False,
         ),

@@ -1,7 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
 
-from products.models import Review
-from products.serializers import ReviewSerializer
+from market.models import Review
+from market.serializers import ReviewSerializer
 
 
 class ReviewViewSet(ModelViewSet):

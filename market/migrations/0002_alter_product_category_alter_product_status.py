@@ -7,7 +7,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ("products", "0001_initial"),
+        ("market", "0001_initial"),
     ]
 
     operations = [
@@ -15,14 +15,14 @@ class Migration(migrations.Migration):
             model_name="product",
             name="category",
             field=models.ForeignKey(
-                blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to="products.productcategory"
+                blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to="market.productcategory"
             ),
         ),
         migrations.AlterField(
             model_name="product",
             name="status",
             field=models.ForeignKey(
-                blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to="products.productstatus"
+                blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to="market.productstatus"
             ),
         ),
     ]

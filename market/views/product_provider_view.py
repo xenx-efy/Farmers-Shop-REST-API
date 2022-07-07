@@ -3,8 +3,8 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
-from products.models.product_provider import ProductProvider
-from products.serializers import ProductProviderSerializer
+from market.models.product_provider import ProductProvider
+from market.serializers import ProductProviderSerializer
 
 
 class ProductProviderViewSet(ModelViewSet):

@@ -12,7 +12,7 @@ class ProductProviderViewSet(ModelViewSet):
     serializer_class = ProductProviderSerializer
     permission_classes = [IsAuthenticated]
 
-    @action(detail=False, methods=['GET', 'PUT'])
+    @action(detail=False)
     def me(self, request):
         product_provider, created = ProductProvider.objects.get_or_create(user_id=request.user.id)
 

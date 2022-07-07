@@ -5,12 +5,12 @@ from products.views import ProductViewSet, ProductStatusViewSet, ProductCategory
     ProductProviderViewSet
 
 router = DefaultRouter()
-router.register('products', ProductViewSet, 'product')
-router.register('products-statuses', ProductStatusViewSet)
-router.register('products-categories', ProductCategoryViewSet)
-router.register('products-providers', ProductProviderViewSet)
+router.register(r'products', ProductViewSet, 'product')
+router.register(r'products-statuses', ProductStatusViewSet)
+router.register(r'products-categories', ProductCategoryViewSet)
+router.register(r'products-providers', ProductProviderViewSet)
 
 products_router = routers.NestedDefaultRouter(router, 'products', lookup='product')
-products_router.register('reviews', ReviewViewSet, basename='product-reviews')
+products_router.register(r'reviews', ReviewViewSet, basename='product-reviews')
 
 urlpatterns = router.urls + products_router.urls

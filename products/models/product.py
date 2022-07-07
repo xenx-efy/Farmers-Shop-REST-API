@@ -7,6 +7,7 @@ class Product(models.Model):
     title = models.CharField(max_length=250)
     description = models.TextField(blank=True)
     price = models.PositiveIntegerField()
+    owner = models.ForeignKey('products.ProductProvider', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

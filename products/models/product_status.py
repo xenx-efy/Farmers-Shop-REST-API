@@ -9,5 +9,5 @@ class ProductStatus(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = 'product status'
-        verbose_name_plural = 'product statuses'
+        verbose_name = "product status"
+        verbose_name_plural = "product statuses"

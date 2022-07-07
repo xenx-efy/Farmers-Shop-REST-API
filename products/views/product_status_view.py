@@ -9,4 +9,4 @@ class ProductStatusViewSet(ModelViewSet):
     serializer_class = ProductStatusSerializer
 
     def get_serializer_context(self):
-        return {'request': self.request}
+        return {"request": self.request}

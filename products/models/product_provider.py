@@ -18,7 +18,7 @@ class ProductProvider(models.Model):
         return self.user.last_name
 
     def __str__(self):
-        return f'{self.first_name()} {self.last_name()}'
+        return f"{self.first_name()} {self.last_name()}"
 
     class Meta:
-        ordering = ['user__first_name', 'user__last_name']
+        ordering = ["user__first_name", "user__last_name"]

@@ -6,25 +6,25 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('products', '0002_alter_product_category_alter_product_status'),
+        ("products", "0002_alter_product_category_alter_product_status"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='product',
-            options={'verbose_name': 'product', 'verbose_name_plural': 'products'},
+            name="product",
+            options={"verbose_name": "product", "verbose_name_plural": "products"},
         ),
         migrations.AlterModelOptions(
-            name='productcategory',
-            options={'verbose_name': 'product category', 'verbose_name_plural': 'product categories'},
+            name="productcategory",
+            options={"verbose_name": "product category", "verbose_name_plural": "product categories"},
         ),
         migrations.AlterModelOptions(
-            name='productstatus',
-            options={'verbose_name': 'product status', 'verbose_name_plural': 'product statuses'},
+            name="productstatus",
+            options={"verbose_name": "product status", "verbose_name_plural": "product statuses"},
         ),
         migrations.AlterField(
-            model_name='productcategory',
-            name='parent_id',
+            model_name="productcategory",
+            name="parent_id",
             field=models.PositiveBigIntegerField(blank=True, null=True),
         ),
     ]

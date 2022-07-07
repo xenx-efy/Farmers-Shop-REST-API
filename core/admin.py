@@ -1,6 +1,8 @@
 from typing import Set
+
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+
 from core.models import User
 
 
@@ -29,23 +31,15 @@ class UserAdmin(BaseUserAdmin):
         disabled_fields = set()  # type: Set[str]
 
         if not is_superuser:
-            disabled_fields |= {
-                'username',
-                'is_superuser',
-                'user_permissions'
-            }
+            disabled_fields |= {"username", "is_superuser", "user_permissions"}
 
         # Prevent non-superusers from editing their own permissions
-        if (
-                not is_superuser
-                and obj is not None
-                and obj == request.user
-        ):
+        if not is_superuser and obj is not None and obj == request.user:
             disabled_fields |= {
-                'is_staff',
-                'is_superuser',
-                'groups',
-                'user_permissions',
+                "is_staff",
+                "is_superuser",
+                "groups",
+                "user_permissions",
             }
 
         for f in disabled_fields:

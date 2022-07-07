@@ -2,7 +2,7 @@ from decimal import Decimal
 
 from rest_framework import serializers
 
-from products.models import Product, ProductStatus, ProductCategory, Review
+from products.models import Product, ProductCategory, ProductStatus, Review
 from products.models.product_provider import ProductProvider
 
 
@@ -11,7 +11,7 @@ class ProductStatusSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ProductStatus
-        fields = ['id', 'name']
+        fields = ["id", "name"]
 
 
 class ProductCategorySerializer(serializers.ModelSerializer):
@@ -19,7 +19,7 @@ class ProductCategorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ProductCategory
-        fields = ['id', 'name', 'parent_id']
+        fields = ["id", "name", "parent_id"]
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -27,9 +27,9 @@ class ProductSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
-        fields = ['id', 'title', 'description', 'price', 'price_with_tax', 'status', 'category']
+        fields = ["id", "title", "description", "price", "price_with_tax", "status", "category"]
 
-    price_with_tax = serializers.SerializerMethodField(method_name='calculate_tax')
+    price_with_tax = serializers.SerializerMethodField(method_name="calculate_tax")
 
     @staticmethod
     def calculate_tax(product: Product) -> Decimal:
@@ -40,12 +40,12 @@ class ReviewSerializer(serializers.ModelSerializer):
     """Serializer for Product model"""
 
     def create(self, validated_data):
-        product_id = self.context['product_id']
+        product_id = self.context["product_id"]
         return Review.objects.create(**validated_data, product_id=product_id)
 
     class Meta:
         model = Review
-        fields = ['id', 'date', 'name', 'description']
+        fields = ["id", "date", "name", "description"]
 
 
 class ProductProviderSerializer(serializers.ModelSerializer):
@@ -53,4 +53,4 @@ class ProductProviderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ProductProvider
-        fields = ['id', 'user_id', 'phone', 'description']
+        fields = ["id", "user_id", "phone", "description"]

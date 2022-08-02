@@ -16,11 +16,17 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterModelOptions(
             name="productcategory",
-            options={"verbose_name": "product category", "verbose_name_plural": "product categories"},
+            options={
+                "verbose_name": "product category",
+                "verbose_name_plural": "product categories",
+            },
         ),
         migrations.AlterModelOptions(
             name="productstatus",
-            options={"verbose_name": "product status", "verbose_name_plural": "product statuses"},
+            options={
+                "verbose_name": "product status",
+                "verbose_name_plural": "product statuses",
+            },
         ),
         migrations.AlterField(
             model_name="productcategory",

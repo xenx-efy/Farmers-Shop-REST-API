@@ -16,12 +16,23 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name="ProductProvider",
             fields=[
-                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
                 ("phone", models.CharField(max_length=255)),
                 ("description", models.TextField()),
                 (
                     "user",
-                    models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
                 ),
             ],
             options={
@@ -32,7 +43,9 @@ class Migration(migrations.Migration):
             model_name="product",
             name="owner",
             field=models.ForeignKey(
-                default=1, on_delete=django.db.models.deletion.CASCADE, to="market.productprovider"
+                default=1,
+                on_delete=django.db.models.deletion.CASCADE,
+                to="market.productprovider",
             ),
             preserve_default=False,
         ),

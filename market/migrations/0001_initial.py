@@ -14,7 +14,15 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name="ProductCategory",
             fields=[
-                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
                 ("name", models.CharField(max_length=250)),
                 ("parent_id", models.PositiveBigIntegerField(blank=True)),
             ],
@@ -22,14 +30,30 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name="ProductStatus",
             fields=[
-                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
                 ("name", models.CharField(max_length=250)),
             ],
         ),
         migrations.CreateModel(
             name="Product",
             fields=[
-                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
                 ("title", models.CharField(max_length=250)),
                 ("description", models.TextField(blank=True)),
                 ("price", models.PositiveIntegerField()),
@@ -38,13 +62,17 @@ class Migration(migrations.Migration):
                 (
                     "category",
                     models.ForeignKey(
-                        null=True, on_delete=django.db.models.deletion.SET_NULL, to="market.productcategory"
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        to="market.productcategory",
                     ),
                 ),
                 (
                     "status",
                     models.ForeignKey(
-                        null=True, on_delete=django.db.models.deletion.SET_NULL, to="market.productstatus"
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        to="market.productstatus",
                     ),
                 ),
             ],

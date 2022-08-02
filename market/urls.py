@@ -1,13 +1,8 @@
 from rest_framework.routers import DefaultRouter
 from rest_framework_nested import routers
 
-from market.views import (
-    ProductCategoryViewSet,
-    ProductProviderViewSet,
-    ProductStatusViewSet,
-    ProductViewSet,
-    ReviewViewSet,
-)
+from market.views import (ProductCategoryViewSet, ProductProviderViewSet,
+                          ProductStatusViewSet, ProductViewSet, ReviewViewSet)
 
 router = DefaultRouter()
 router.register(r"products", ProductViewSet, "product")

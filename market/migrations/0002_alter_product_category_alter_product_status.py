@@ -15,14 +15,20 @@ class Migration(migrations.Migration):
             model_name="product",
             name="category",
             field=models.ForeignKey(
-                blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to="market.productcategory"
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                to="market.productcategory",
             ),
         ),
         migrations.AlterField(
             model_name="product",
             name="status",
             field=models.ForeignKey(
-                blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to="market.productstatus"
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                to="market.productstatus",
             ),
         ),
     ]

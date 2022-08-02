@@ -15,6 +15,13 @@ repos:
         -   id: flake8
             args: ['--max-line-length=120','--ignore=E203,E501,W503']
             files: '.'
+#  -   repo: https://github.com/ambv/black
+#      rev: '22.6.0'
+#      hooks:
+#        -   id: black
+#            args: ['-v','--check']
+#            language_version: python3.10
+#            files: '.'
   -   repo: https://github.com/pycqa/isort
       rev: '5.10.0'
       hooks:
